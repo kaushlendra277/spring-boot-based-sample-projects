@@ -1,0 +1,12 @@
+2019-11-06 19:40:25.788  INFO 23296 --- [main] r.i.SpringBootUniqueRequestIdApplication : Starting SpringBootUniqueRequestIdApplication on Kaushalendra-CW with PID 23296 (D:\workdir2\chauhan_k\springboot-sample-projects\spring-boot-unique-request-id\target\classes started by chauhan_k in D:\workdir2\chauhan_k\springboot-sample-projects\spring-boot-unique-request-id)
+2019-11-06 19:40:25.790  INFO 23296 --- [main] r.i.SpringBootUniqueRequestIdApplication : No active profile set, falling back to default profiles: default
+2019-11-06 19:40:26.360  INFO 23296 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2019-11-06 19:40:26.367  INFO 23296 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-11-06 19:40:26.368  INFO 23296 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.27]
+2019-11-06 19:40:26.424  INFO 23296 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-11-06 19:40:26.424  INFO 23296 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 596 ms
+2019-11-06 19:40:26.540  INFO 23296 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-11-06 19:40:26.656  INFO 23296 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2019-11-06 19:40:26.658  INFO 23296 --- [main] r.i.SpringBootUniqueRequestIdApplication : Started SpringBootUniqueRequestIdApplication in 1.124 seconds (JVM running for 1.847)
+2019-11-06 19:43:45.353  INFO 23296 --- [RMI TCP Connection(18)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2019-11-06 19:43:45.355  INFO 23296 --- [RMI TCP Connection(18)-127.0.0.1] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
