@@ -1,7 +1,5 @@
 package ksc.poc.spring.unique.request.id.interceptors;
 
-import java.io.IOException;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
