@@ -46,6 +46,8 @@ public class Slf4jMDCInterceptor extends HandlerInterceptorAdapter {
 	public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler,
 			ModelAndView modelAndView) throws Exception {
 		MDC.remove(mdcTokenKey);
+		// resetting corelationId
+		requestHelper.setCorelationId(null);
 		super.postHandle(request, response, handler, modelAndView);
 	}
 	
