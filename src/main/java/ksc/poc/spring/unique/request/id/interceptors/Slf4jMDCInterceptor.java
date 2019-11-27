@@ -6,19 +6,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.slf4j.MDC;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
-import ksc.poc.spring.unique.request.id.helpers.RequestHelper;
+import ksc.poc.spring.unique.request.id.interceptors.dtos.MyRequestDetailsHolder;
 
 @Component
 public class Slf4jMDCInterceptor extends HandlerInterceptorAdapter {
-	
-	@Autowired
-	private RequestHelper requestHelper;
 	
 	private String mdcTokenKey="xyzCorelationId";
     private String requestHeader =mdcTokenKey;
@@ -32,13 +28,15 @@ public class Slf4jMDCInterceptor extends HandlerInterceptorAdapter {
             token = request.getHeader(requestHeader);
             // this is for testing error response in specific format
         	if(token.equalsIgnoreCase("error")) {
+        		MyRequestDetailsHolder.setCorelationId(token);
         		throw new Exception("This is a test exception");
         	}
         } else {
         	token = UUID.randomUUID().toString().toUpperCase().replace("-", "");
         }
         MDC.put(mdcTokenKey, token);
-        requestHelper.setCorelationId(token);
+        //requestHelper.setCorelationId(token);
+        MyRequestDetailsHolder.setCorelationId(token);
         return super.preHandle(request, response, handler);
     }
 
@@ -47,7 +45,7 @@ public class Slf4jMDCInterceptor extends HandlerInterceptorAdapter {
 			ModelAndView modelAndView) throws Exception {
 		MDC.remove(mdcTokenKey);
 		// resetting corelationId
-		requestHelper.setCorelationId(null);
+		MyRequestDetailsHolder.clearRequestInfo();
 		super.postHandle(request, response, handler, modelAndView);
 	}
 	

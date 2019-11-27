@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import ksc.poc.spring.unique.request.id.dtos.GResponse;
 import ksc.poc.spring.unique.request.id.dtos.TestStudentResponse;
-import ksc.poc.spring.unique.request.id.helpers.RequestHelper;
+import ksc.poc.spring.unique.request.id.interceptors.dtos.MyRequestDetailsHolder;
 import ksc.poc.spring.unique.request.id.services.StudentService;
 import lombok.RequiredArgsConstructor;
 
@@ -14,15 +14,13 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class StudentController {
 	
-	private final RequestHelper requestHelper;
-	
 	private final StudentService studentService;
 	
 	@GetMapping
 	public ResponseEntity<GResponse<TestStudentResponse>> test() {
 		GResponse<TestStudentResponse> response = GResponse
 				.<TestStudentResponse>builder()
-				.corelationId(requestHelper.getCorelationId())
+				.corelationId(MyRequestDetailsHolder.getCorelationId())
 				.data(studentService.test()).build();
 		return ResponseEntity
 				.ok(response);
